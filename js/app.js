@@ -3,12 +3,10 @@ class Entity {
     this.xaxis = 101;
     this.yaxis = 83;
     this.beginX = this.xaxis * 2;
-    this.beginY = (this.yaxis * 5) - 20;
-  //  this.x = this.beginX;
-  //  this.y = this.beginY;
+    this.beginY = (this.yaxis * 4) + 55;
     this.sprite =  "images/";
   }
-
+//Draw player and enemy on the screen
   render() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
   }
@@ -20,7 +18,7 @@ class Enemy extends Entity {
     super();
     this.x = x;
     this.y = y + 55;
-    this.speed = speed;
+    this.speed =  speed;
     this.sprite = "images/enemy-bug.png";
   }
 
@@ -30,16 +28,14 @@ update(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
-
     if (this.x < 505) {
     this.x += this.speed * dt;
-
     }
-   else {
+    else {
    this.x = -101;
-   console.log('reset', this);
+  // console.log('reset', this);
     }
- }
+  }
 }
 // Draw the enemy on the screen, required method for game
 //render () {
@@ -50,64 +46,58 @@ update(dt) {
 // Now write your own player class
 class Player extends Entity {
   constructor () {
-  //  this.xaxis = 101;
-  //  this.yaxis = 83;
-  //  this.beginX = this.xaxis * 2;
-  //  this.beginY = (this.yaxis * 5) - 20;
     super();
     this.x = this.beginX;
     this.y = this.beginY;
     this.sprite += "char-princess-girl.png";
   }
 
-  //render() {
-  //ctx.drawImage(Resources.get(this.spri//te), this.x, this.y);
-  //}
+  update() {
+    for (let enemy of allEnemies) {
+     if (enemy.x + (this.xaxis/2) > player.x &&
+     enemy.x < player.x + (this.xaxis/2) && (enemy.y === player.y)) {
+       player.resetPlayer();
 
-// This class requires an update(), //render() and
-// a handleInput() method.
-//update(){
-//checkCollision();
-//checkGameOver();
-//}
-
+   }
+  }
+}
 //handleInput() method: Player movement
-handleInput(keypress) {
-  switch(keypress) {
-    case 'left':
+  handleInput(keypress) {
+    switch(keypress) {
+      case 'left':
         this.x = this.x > 0 ? this.x - this.xaxis : this.x;
         break;
-    case 'up':
+      case 'up':
         this.y = this.y > 0 ? this.y - this.yaxis : this.y;
         break;
-    case 'right':
+      case 'right':
         this.x = this.x < 4 * this.xaxis ? this.x + this.xaxis : this.x;
         break;
-    case 'down':
+      case 'down':
         this.y = this.y < 4 * this.yaxis ? this.y + this.yaxis : this.y;
         break;
-    default:
+      default:
         break;
-   }
- }
-}
-//resetPlayer() {
-//this.x = 200;
-//this.y = 400;
-//}
+      }
+  }
 
+ resetPlayer() {
+   this.x = this.beginX;
+   this.y = this.beginY;
+  }
+}
 //Create player instance
 const player = new Player();
 
 //Create instances of all enemies
 const bug1 = new Enemy(-101, 0, 300);
 const bug2 = new Enemy(-101, 83, 350);
-const bug3 = new Enemy((-101 * 2.5), 83, 375);
-const bug4 = new Enemy(-240, 175, 400);
+const bug3 = new Enemy((-101 * 2.5), 83, 400);
+//const bug4 = new Enemy(-240, 175, 400);
 
 // Place all enemy objects in an array called allEnemies
 const allEnemies = [];
-allEnemies.push(bug1, bug2, bug3, bug4);
+allEnemies.push(bug1, bug2, bug3);
 console.log(allEnemies);
 
 
