@@ -14,15 +14,18 @@
  */
 
 var Engine = (function(global) {
+
     /* Predefine the variables we'll be using within this scope,
      * create the canvas element, grab the 2D context for that canvas
      * set the canvas elements height/width and add it to the DOM.
      */
-    var doc = global.document,
-        win = global.window,
-        canvas = doc.createElement('canvas'),
-        ctx = canvas.getContext('2d'),
-        lastTime;
+    const doc = global.document;
+    const win = global.window;
+    const canvas = doc.createElement('canvas');
+    const ctx = canvas.getContext('2d');
+    let lastTime, frameId;
+
+
 
     canvas.width = 505;
     canvas.height = 606;
@@ -55,7 +58,16 @@ var Engine = (function(global) {
         /* Use the browser's requestAnimationFrame function to call this
          * function again as soon as the browser is able to draw another frame.
          */
-        win.requestAnimationFrame(main);
+
+       // If player won stop animation frame and call victory
+       if (player.wins === true) {
+         win.cancelAnimationFrame(frameId);
+        // modal.classList.toggle(hide);
+         console.log('You won!');
+       }
+       else{
+          frameId = win.requestAnimationFrame(main);
+        }
     }
 
     /* This function does some initial setup that should only occur once,
@@ -93,7 +105,7 @@ var Engine = (function(global) {
      allEnemies.forEach(function(enemy) {
         enemy.update(dt);
       });
-      player.update();
+      player.update(frameId);
     }
 
     /* This function initially draws the "game level", it will then call
@@ -152,7 +164,7 @@ var Engine = (function(global) {
         enemy.render();
      });
 
-       player.render();
+     player.render(frameId);
     }
 
     /* This function does nothing but it could have been a good place to
@@ -161,6 +173,16 @@ var Engine = (function(global) {
      */
     function reset() {
         // noop
+        const modal = document.querySelector("#modal");
+        const button = document.querySelector("#replay");
+
+        button.addEventListener("click", () => {
+           //modal.classList.toggle(hide);
+           player.resetPlayer();
+           player.wins = false;
+           win.requestAnimationFrame(main);
+         });
+
     }
 
     /* Go ahead and load all of the images we know we're going to need to

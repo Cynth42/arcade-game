@@ -1,3 +1,4 @@
+//parent construction function for enemy and player ito nherit from
 class Entity {
   constructor () {
     this.xaxis = 101;
@@ -37,31 +38,33 @@ update(dt) {
     }
   }
 }
-// Draw the enemy on the screen, required method for game
-//render () {
-//ctx.drawImage(Resources.get(this.sprite//), this.x, this.y);
- //}
-//}
 
-// Now write your own player class
+// player construction function //player class
 class Player extends Entity {
   constructor () {
     super();
     this.x = this.beginX;
     this.y = this.beginY;
+    this.wins = false;
     this.sprite += "char-princess-girl.png";
   }
 
   update() {
+  //checksForCollisions
     for (let enemy of allEnemies) {
-     if (enemy.x + (this.xaxis/2) > player.x &&
+      if (enemy.x + (this.xaxis/2) > player.x &&
      enemy.x < player.x + (this.xaxis/2) && (enemy.y === player.y)) {
        player.resetPlayer();
-
+     }
    }
+  //checksIfGameOver and render modal
+    if (player.y === 55) {
+       player.wins = true;
+       console.log('win');
+    }
   }
-}
-//handleInput() method: Player movement
+
+ //handleInput() method: Player movement
   handleInput(keypress) {
     switch(keypress) {
       case 'left':
@@ -89,15 +92,16 @@ class Player extends Entity {
 //Create player instance
 const player = new Player();
 
-//Create instances of all enemies
-const bug1 = new Enemy(-101, 0, 300);
-const bug2 = new Enemy(-101, 83, 350);
-const bug3 = new Enemy((-101 * 2.5), 83, 400);
-//const bug4 = new Enemy(-240, 175, 400);
-
-// Place all enemy objects in an array called allEnemies
+// all enemy objects is placed in an array called allEnemies
 const allEnemies = [];
-allEnemies.push(bug1, bug2, bug3);
+
+//Create instances of all enemies
+// Enemy parameters
+const enemy1 =new Enemy(-101, 0, 400);
+const enemy2 = new Enemy(-101, 83, 400);
+const enemy3 = new Enemy(-252.5, 83, 400);
+const enemy4 = new Enemy(-303, 175, 300);
+allEnemies.push(enemy1, enemy2, enemy3, enemy4);
 console.log(allEnemies);
 
 
