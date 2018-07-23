@@ -1,7 +1,7 @@
 
 # Arcde Game Project 
 
-### Project 3: Udacity's Front-End Nanodegree Classic 2D arcade game
+### Project 3: Udacity's Front-End Nanodegree Classic 2D arcade game replicates the classic arcade game:[frogger](https://www.youtube.com/watch?v=l9fO-YuWPSk&feature=youtu.be)
 
 ## Table of Contents
 
@@ -19,14 +19,21 @@ Download/clone to computer to play.
 
 ## Instructions
 
- Use keyboard arrow keys to move the Hero/player across the game board to reach the top of the board.  Make sure to dodge those devious lady bugs who cross the road! You'll get bumped back to start if you collide with those bugs. When you reach the river, you are a winner!!!
+ Use keyboard arrow keys to move the player around the game board to reach the top of the board
+ -player can move left, right, up and down with the arrow keys
+ 
+ Make sure to dodge those devious lady bugs who cross the road! Y
+ -if the player comes in contact with the bugs, the player will be sent to the center at the bottom of the board
+ 
+ Game is over or won 
+ -when the player reaches the river at the top wall
 
 ## Features
 
 - Victory modal
-- Many enemies with different speeds moving across the board
+- Many enemies with different speeds move across the board
 - Collision detection
-- Player uses Up, Down, Left, Right keys to move one block for each keypress. 
+- Player moves in left, right, up and down directions on the screen 
 
 ## Used
 
