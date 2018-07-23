@@ -13,7 +13,7 @@ render() {
   }
 }
 
-// Enemies our player must avoid
+// Enemies our player must avoid: enemy constructor function
 class Enemy extends Entity {
   constructor(x, y, speed)  {
   //super constructor alter's parent's class
@@ -39,6 +39,7 @@ update(dt) {
   }
 }
 
+//create player constructor function
 class Player  extends Entity{
   constructor () {
     //super constructor alter's parent's class
@@ -49,7 +50,8 @@ class Player  extends Entity{
     this.sprite += "char-princess-girl.png";
   }
 
-//when enemy is close enough to player's x/y location collide move player back to start position & checksIfGameOver and render modal
+//when enemy is close enough to player's x and y locations collide move 
+// player back to start position & checksIfGameOver and render modal
   update() {
     for (let enemy of allEnemies) {
       if (enemy.x + (this.xaxis/2) > player.x &&
