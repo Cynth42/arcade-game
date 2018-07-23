@@ -1,6 +1,51 @@
-frontend-nanodegree-arcade-game
-===============================
 
-Students should use this [rubric](https://review.udacity.com/#!/projects/2696458597/rubric) for self-checking their submission. Make sure the functions you write are **object-oriented** - either class functions (like Player and Enemy) or class prototype functions such as Enemy.prototype.checkCollisions, and that the keyword 'this' is used appropriately within your class and class prototype functions to refer to the object the function is called upon. Also be sure that the **readme.md** file is updated with your instructions on both how to 1. Run and 2. Play your arcade game.
+# Arcde Game Project 
 
-For detailed instructions on how to get started, check out this [guide](https://docs.google.com/document/d/1v01aScPjSWCCWQLIpFqvg3-vXLH2e8_SZQKC8jNO0Dc/pub?embedded=true).
+### Project 3: Udacity's Front-End Nanodegree is a Classic 2D arcade game about one player and several enemies relying on JavaScript. 
+
+## Table of Contents
+
+* [Installation](#installation)
+* [Intructions](#instructions)
+* [Features](#features)
+* [Used](#used)
+* [Credits](#credits)
+* [References](#references)
+
+
+## Installation
+
+Download/clone to computer to play.
+
+## Instructions
+
+ Use keyboard arrow keys to move the Hero/player across the game board to reach the top of the board.  Make sure to dodge those devious lady bugs who cross the road! You'll get bumped back to start if you collide with those bugs. When you reach the river, you are a winner!!!
+
+## Features
+
+- Victory modal
+- Many enemies with different speeds moving across the board
+- Collision detection
+- Player uses Up, Down, Left, Right keys to move one block for each keypress. 
+
+## Used
+
+- HTML
+- CSS
+- JS[ES6]
+
+## Dependencies/Frameworks/Libraries/APIs:
+- [Font Awesome](https://fontawesome.com/) 
+- [Google Font](https://fonts.google.com/)
+
+## Credits
+- Special thanks and appreciation to the Grow with Google and Udacity Front End Scholarship Program!
+
+## References
+I used these sources to complete this project: MDN(https://developer.mozilla.org/en-US/docs/Web/API/Window/cancelAnimationFrame), W3Schools(https://www.w3schools.com/), https://dmauro.github.io/Keypress/, https://stackoverflow.com/questions/1846599/how-to-find-out-what-character-key-is-pressed, Matthew Cranford's walkthroughs https://matthewcranford.com/arcade-game-walkthrough-part-6-pseudo-code/), https://stackoverflow.com/questions/41305439/simple-javascript-collision-detection, https://sabe.io/tutorials/how-to-create-modal-popup-box
+
+
+
+
+
+
