@@ -1,7 +1,7 @@
 
 # Arcde Game Project 
 
-### Project 3: Udacity's Front-End Nanodegree Classic 2D arcade game replicates the classic arcade game:[frogger](https://www.youtube.com/watch?v=l9fO-YuWPSk&feature=youtu.be)
+### Project 3: Udacity's Front-End Nanodegree Classic 2D arcade game replicates the classic arcade game [frogger](https://www.youtube.com/watch?v=l9fO-YuWPSk&feature=youtu.be)
 
 ## Table of Contents
 
