@@ -20,13 +20,13 @@ class Enemy extends Entity {
     super();
     this.x = x;
     this.y = y + 55;
-    this.speed =  speed;
+    this.speed = speed;
     this.sprite += "enemy-bug.png";
   }
 
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
-update(dt) {
+ update(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
@@ -58,13 +58,12 @@ class Player  extends Entity{
       enemy.x < player.x + (this.xaxis/2) && (enemy.y === player.y)) {
       player.resetPlayer();
       }
-   }
+    }
     //check if player reached river
    if (player.y === 55) {
        player.wins = true;
     }
   }
-
  //handleInput() method: creates Player's movement
   handleInput(keypress) {
     switch(keypress) {
@@ -84,12 +83,13 @@ class Player  extends Entity{
         break;
       }
   }
-//reset player back to starting position on x and y axis
- resetPlayer() {
-   this.x = this.beginX;
-   this.y = this.beginY;
+ //reset player back to starting position on x and y axis
+  resetPlayer() {
+    this.x = this.beginX;
+    this.y = this.beginY;
   }
 }
+
 //Create player instance
 const player = new Player();
 
@@ -105,8 +105,6 @@ const enemy4 = new Enemy(-303, 175, 300);
 allEnemies.push(enemy1, enemy2, enemy3, enemy4);
 console.log(allEnemies);
 
-
-
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
 document.addEventListener('keyup', function(e) {
@@ -116,6 +114,5 @@ document.addEventListener('keyup', function(e) {
         39: 'right',
         40: 'down'
     };
-
     player.handleInput(allowedKeys[e.keyCode]);
 });
