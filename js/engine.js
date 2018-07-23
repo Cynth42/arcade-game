@@ -20,13 +20,12 @@ var Engine = (function(global) {
      * set the canvas elements height/width and add it to the DOM.
      */
     const doc = global.document;
-    const win = global.window;
-    const canvas = doc.createElement('canvas');
-    const ctx = canvas.getContext('2d');
+          win = global.window,
+          canvas = doc.createElement('canvas'),
+          ctx = canvas.getContext('2d'),
+          modal = document.querySelector(".modal"),
+          button = document.querySelector("#restart");
     let lastTime, frameId;
-
-
-
     canvas.width = 505;
     canvas.height = 606;
     doc.body.appendChild(canvas);
@@ -59,13 +58,14 @@ var Engine = (function(global) {
          * function again as soon as the browser is able to draw another frame.
          */
 
-       // If player won stop animation frame and call victory
+       // check If player wins from Matt's walkthrough and MDN Docs
        if (player.wins === true) {
+         //stop animation frame
          win.cancelAnimationFrame(frameId);
-        // modal.classList.toggle(hide);
-         console.log('You won!');
+         //show modal
+         modal.classList.toggle('hide');
        }
-       else{
+       else {
           frameId = win.requestAnimationFrame(main);
         }
     }
@@ -172,17 +172,15 @@ var Engine = (function(global) {
      * those sorts of things. It's only called once by the init() method.
      */
     function reset() {
-        // noop
-        const modal = document.querySelector("#modal");
-        const button = document.querySelector("#replay");
-
-        button.addEventListener("click", () => {
-           //modal.classList.toggle(hide);
-           player.resetPlayer();
-           player.wins = false;
-           win.requestAnimationFrame(main);
-         });
-
+      // noop
+      button.addEventListener("click", () => {
+         modal.classList.toggle('hide');
+        //sends player back to start position
+         player.resetPlayer();
+         player.wins = false;
+        //permits animation frame to restart
+         win.requestAnimationFrame(main);
+     });
     }
 
     /* Go ahead and load all of the images we know we're going to need to

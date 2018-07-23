@@ -1,4 +1,4 @@
-//parent construction function for enemy and player ito nherit from
+//player and enemy inherits from parent construction function
 class Entity {
   constructor () {
     this.xaxis = 101;
@@ -7,7 +7,7 @@ class Entity {
     this.beginY = (this.yaxis * 4) + 55;
     this.sprite =  "images/";
   }
-//Draw player and enemy on the screen
+//render player and enemy on the screen
   render() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
   }
@@ -16,6 +16,7 @@ class Entity {
 // Enemies our player must avoid
 class Enemy extends Entity {
   constructor(x, y, speed)  {
+    //super constructor alter's parent's class
     super();
     this.x = x;
     this.y = y + 55;
@@ -34,14 +35,14 @@ update(dt) {
     }
     else {
    this.x = -101;
-  // console.log('reset', this);
-    }
+   }
   }
 }
 
-// player construction function //player class
+//player construction function //player class
 class Player extends Entity {
   constructor () {
+    //super constructor alter's parent's class
     super();
     this.x = this.beginX;
     this.y = this.beginY;
@@ -49,22 +50,21 @@ class Player extends Entity {
     this.sprite += "char-princess-girl.png";
   }
 
+//when enemy is close enough to player's x/y location collide move player back to start position &    checksIfGameOver and render modal: Grab concept from Matt's walkthrough
   update() {
-  //checksForCollisions
     for (let enemy of allEnemies) {
       if (enemy.x + (this.xaxis/2) > player.x &&
-     enemy.x < player.x + (this.xaxis/2) && (enemy.y === player.y)) {
-       player.resetPlayer();
-     }
+      enemy.x < player.x + (this.xaxis/2) && (enemy.y === player.y)) {
+      player.resetPlayer();
+      }
    }
-  //checksIfGameOver and render modal
-    if (player.y === 55) {
+    //check if player reached river
+   if (player.y === 55) {
        player.wins = true;
-       console.log('win');
     }
   }
 
- //handleInput() method: Player movement
+ //handleInput() method: creates Player's movement
   handleInput(keypress) {
     switch(keypress) {
       case 'left':
@@ -83,7 +83,7 @@ class Player extends Entity {
         break;
       }
   }
-
+//reset player back to starting position on x and y axis
  resetPlayer() {
    this.x = this.beginX;
    this.y = this.beginY;
