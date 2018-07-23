@@ -22,7 +22,7 @@ Download/clone to computer to play.
  Use the keyboard arrow keys to move the player around the game board to reach the top of the board
  -player can move left, right, up and down with the arrow keys
  
- Avoid contact with devious lady bugs who cross the road! 
+ Avoid contact with those devious lady bugs who cross the road! 
  -if the player comes in contact with the bugs, the player will be sent down to its starting location at the bottom center of the board
  
  Game is over or won 
