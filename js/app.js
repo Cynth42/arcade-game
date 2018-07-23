@@ -1,6 +1,6 @@
 //player and enemy inherits from parent construction function
 class Entity {
-  constructor () {
+ constructor () {
     this.xaxis = 101;
     this.yaxis = 83;
     this.beginX = this.xaxis * 2;
@@ -8,20 +8,20 @@ class Entity {
     this.sprite =  "images/";
   }
 //render player and enemy on the screen
-  render() {
-    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+render() {
+   ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
   }
 }
 
 // Enemies our player must avoid
 class Enemy extends Entity {
   constructor(x, y, speed)  {
-    //super constructor alter's parent's class
+  //super constructor alter's parent's class
     super();
     this.x = x;
     this.y = y + 55;
     this.speed =  speed;
-    this.sprite = "images/enemy-bug.png";
+    this.sprite += "enemy-bug.png";
   }
 
 // Update the enemy's position, required method for game
@@ -39,8 +39,7 @@ update(dt) {
   }
 }
 
-//player construction function //player class
-class Player extends Entity {
+class Player  extends Entity{
   constructor () {
     //super constructor alter's parent's class
     super();
@@ -50,7 +49,7 @@ class Player extends Entity {
     this.sprite += "char-princess-girl.png";
   }
 
-//when enemy is close enough to player's x/y location collide move player back to start position &    checksIfGameOver and render modal: Grab concept from Matt's walkthrough
+//when enemy is close enough to player's x/y location collide move player back to start position & checksIfGameOver and render modal
   update() {
     for (let enemy of allEnemies) {
       if (enemy.x + (this.xaxis/2) > player.x &&
