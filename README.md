@@ -19,11 +19,11 @@ Download/clone to computer to play.
 
 ## Instructions
 
- Use keyboard arrow keys to move the player around the game board to reach the top of the board
+ Use the keyboard arrow keys to move the player around the game board to reach the top of the board
  -player can move left, right, up and down with the arrow keys
  
- Make sure to dodge those devious lady bugs who cross the road! Y
- -if the player comes in contact with the bugs, the player will be sent to the center at the bottom of the board
+ Avoid contact with devious lady bugs who cross the road! 
+ -if the player comes in contact with the bugs, the player will be sent down to its starting location at the bottom center of the board
  
  Game is over or won 
  -when the player reaches the river at the top wall
