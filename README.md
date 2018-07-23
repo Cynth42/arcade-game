@@ -1,7 +1,7 @@
 
 # Arcde Game Project 
 
-### Project 3: Udacity's Front-End Nanodegree is a Classic 2D arcade game about one player and several enemies relying on JavaScript. 
+### Project 3: Udacity's Front-End Nanodegree Classic 2D arcade game
 
 ## Table of Contents
 
