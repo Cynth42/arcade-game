@@ -32,7 +32,7 @@ Download/clone to computer to play.
 
 - Victory modal
 - Many enemies with different speeds move across the board
-- Collision detection
+- Collision detection between player and enemy
 - Player moves in left, right, up and down directions on the screen 
 
 ## Used
