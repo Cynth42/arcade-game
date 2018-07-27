@@ -1,7 +1,8 @@
+/*jshint esversion: 6 */
 /* Engine.js
  * This file provides the game loop functionality (update entities and render),
- * draws the initial game board on the screen, and then calls the update and
- * render methods on your player and enemy objects (defined in your app.js).
+ * draws the initial game board on the screen, and then calls the * update and
+ * render methods on your player and enemy objects (defined in   your app.js).
  *
  * A game engine works by drawing the entire game screen over and over, kind of
  * like a flipbook you may have created as a kid. When your player moves across
@@ -12,9 +13,9 @@
  * This engine makes the canvas' context (ctx) object globally available to make
  * writing app.js a little simpler to work with.
  */
-
-var Engine = (function(global) {
-
+ //IIFE call with global window object
+ (function(global) {
+     'use strict';
     /* Predefine the variables we'll be using within this scope,
      * create the canvas element, grab the 2D context for that canvas
      * set the canvas elements height/width and add it to the DOM.
@@ -58,16 +59,15 @@ var Engine = (function(global) {
          * function again as soon as the browser is able to draw another frame.
          */
 
-       // check If player wins from Matt's walkthrough and MDN Docs
-       if (player.wins === true) {
+        //check if Player wins
+         if (player.wins === true) {
          //stop animation frame
-         win.cancelAnimationFrame(frameId);
-         //show modal
-         modal.classList.toggle('hide');
-       }
-       else {
+          win.cancelAnimationFrame(frameId);
+          //show modal
+          modal.classList.toggle('hide');
+        } else {
           frameId = win.requestAnimationFrame(main);
-        }
+      }
     }
 
     /* This function does some initial setup that should only occur once,
@@ -118,7 +118,7 @@ var Engine = (function(global) {
         /* This array holds the relative URL to the image used
          * for that particular row of the game level.
          */
-        var rowImages = [
+        const rowImages = [
                 'images/water-block.png',   // Top row is water
                 'images/stone-block.png',   // Row 1 of 3 of stone
                 'images/stone-block.png',   // Row 2 of 3 of stone
@@ -127,8 +127,9 @@ var Engine = (function(global) {
                 'images/grass-block.png'    // Row 2 of 2 of grass
             ],
             numRows = 6,
-            numCols = 5,
-            row, col;
+            numCols = 5;
+            let row,
+            col;
 
         // Before drawing, clear existing canvas
         ctx.clearRect(0,0,canvas.width,canvas.height)
@@ -149,7 +150,6 @@ var Engine = (function(global) {
                 ctx.drawImage(Resources.get(rowImages[row]), col * 101, row * 83);
             }
         }
-
         renderEntities();
     }
 
@@ -172,15 +172,14 @@ var Engine = (function(global) {
      * those sorts of things. It's only called once by the init() method.
      */
     function reset() {
-      // noop
-      button.addEventListener("click", () => {
-         modal.classList.toggle('hide');
-        //sends player back to start position
-         player.resetPlayer();
-         player.wins = false;
+       button.addEventListener("click", () => {
+        modal.classList.toggle('hide');
+      //sends player back to start position
+        player.resetPlayer();
+        player.wins = false;
         //permits animation frame to restart
-         win.requestAnimationFrame(main);
-     });
+        win.requestAnimationFrame(main);
+      });
     }
 
     /* Go ahead and load all of the images we know we're going to need to
@@ -203,3 +202,5 @@ var Engine = (function(global) {
      */
     global.ctx = ctx;
 })(this);
+
+
