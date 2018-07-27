@@ -1,6 +1,6 @@
 
 /*jshint esversion: 6 */
-'use Strict';
+'use strict';
 
 /**
  * @desc Superclass holds common functionalities
@@ -37,19 +37,19 @@ class Enemy extends Character {
     this.sprite += "enemy-bug.png";
   }
 
-/**
- * updates Enemy position 
- *
- * @param {int} dt - DeltaTime - a time
- * delta between ticks
- */
-update(dt) {
-    if (this.x < 505) {
+  /**
+   * updates Enemy position 
+   *
+   * @param {int} dt - DeltaTime - a time
+   * delta between ticks
+   */
+   update(dt) {
+     if (this.x < 505) {
       this.x += this.speed * dt;
-    }
-    else {
+    
+   } else {
       this.x = -101;
-   }
+    }
   }
 }
 
@@ -69,54 +69,53 @@ class Player extends Character {
     this.sprite += "char-princess-girl.png";
   }
 
-/**
- * when enemy is close enough to
- * player's x/y location collide, move
- * player back to start position,
- * checksIfGameOver and render modal
- */
+ /**
+  * when enemy is close enough to
+  * player's x/y location collide, move
+  * player back to start position,
+  * checksIfGameOver and render modal
+  */
   update() {
     for (let enemy of allEnemies) {
-      if (enemy.x + 83 > player.x &&
-      enemy.x < player.x + 83 && (enemy.y === player.y)) {
-      player.resetPlayer();
+      if (enemy.x + 83 > player.x && enemy.x < player.x + 83 && (enemy.y === player.y)) {
+        player.resetPlayer();
+       }
      }
-   }
-    //check if player reached river
-    if (player.y === 55) {
-       player.wins = true;
-    }
+  //check if player reached river
+      if (player.y < 55) {
+        player.wins = true;
+      }
   }
 
-/**
- * Player's movement
- *
- * @param {string} key - String of directions that add * movement to
- */
- handleInput(keypress) {
-    switch(keypress) {
-      case 'left':
-        this.x = this.x > 0 ? this.x - 101 : this.x;
-        break;
-      case 'up':
-        this.y = this.y > 0 ? this.y - 83: this.y;
-        break;
-      case 'right':
-        this.x = this.x < 4 * 101 ? this.x + 101: this.x;
-        break;
-      case 'down':
-        this.y = this.y < 4 * 83 ? this.y + 83 : this.y;
-        break;
-      default:
-        break;
-    }
-  }
+  /**
+   * Player's movement
+   *
+   * @param {string} key - String of directions that add * movement to
+   */
+    handleInput(keypress) {
+      switch(keypress) { 
+        case 'left':
+           this.x = this.x > 0 ? this.x - 101 : this.x;
+           break;
+         case 'up':
+            this.y = this.y > 0 ? this.y - 83: this.y;
+            break;
+         case 'right':
+            this.x = this.x < 4 * 101 ? this.x + 101: this.x;
+            break;
+         case 'down':
+            this.y = this.y < 4 * 83 ? this.y + 83 : this.y;
+            break;
+         default:
+            break;
+        }
+     }
 
-//resets player back to starting coords
-  resetPlayer() {
-    this.x = this.beginX;
-    this.y = this.beginY;
-  }
+  //resets player back to starting coords
+    resetPlayer() {
+      this.x = this.beginX;
+      this.y = this.beginY;
+    }
 }
 
 //Create player instance
