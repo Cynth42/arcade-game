@@ -1,9 +1,5 @@
 
-
-
 /*jshint esversion: 6 */
-//player and enemy inherits from parent construction function
-//(function(global) {
 'use Strict';
 
 /**
