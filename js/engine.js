@@ -59,7 +59,7 @@
          * function again as soon as the browser is able to draw another frame.
          */
 
-        //check if Player wins
+        //check if Player wins from Matt's walkthrough
          if (player.wins === true) {
          //stop animation frame
           win.cancelAnimationFrame(frameId);
@@ -154,7 +154,7 @@
     }
 
     /* This function is called by the render function and is called on each game
-     * tick. Its purpose is to then call the render functions you have defined     * on your enemy and player entities within \\\app.js
+     * tick. Its purpose is to then call the render functions you have defined on your enemy and player entities within \\\app.js
      */
     function renderEntities() {
         /* Loop through all of the objects within the allEnemies array and call
