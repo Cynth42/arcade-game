@@ -11,7 +11,7 @@ class Character {
     this.xaxis = 101;
     this.yaxis = 83;
     this.beginX = this.xaxis * 2;
-    this.beginY = (this.yaxis * 4) + 55;
+    this.beginY = (this.yaxis * 4) + 68;
     this.sprite =  "images/";
   }
 //draw player and enemy on the screen
@@ -31,8 +31,8 @@ class Enemy extends Character {
   constructor(x, y, speed)  {
     super();
     this.x = x;
-    // y === 0 plus offset 55 pixels
-    this.y = y + 55;
+    // y = 0 plus offset 68 pixels
+    this.y = y + 68;
     this.speed = speed;
     this.sprite += "enemy-bug.png";
   }
@@ -82,7 +82,7 @@ class Player extends Character {
        }
      }
   //check if player reached river
-      if (player.y < 55) {
+      if (player.y < 68) {
         player.wins = true;
       }
   }
@@ -90,7 +90,7 @@ class Player extends Character {
   /**
    * Player's movement
    *
-   * @param {string} key - String of directions that add * movement to
+   * @param {string} key - String of directions that add movement to
    */
     handleInput(keypress) {
       switch(keypress) { 
@@ -122,14 +122,15 @@ class Player extends Character {
 const player = new Player();
 
 //Create instances of all enemies
-const enemy1 = new Enemy(-101, 0, 400);
-const enemy2 = new Enemy(-101, 83, 400);
-const enemy3 = new Enemy(-252.5, 83, 400);
-const enemy4 = new Enemy(-303, 166, 375);
+const enemy1 = new Enemy(-101, 0, 300);
+const enemy2 = new Enemy(-400, 83, 350);
+const enemy3 = new Enemy(-252.5, 83, 375);
+const enemy4 = new Enemy(-303, 166, 400);
+const enemy5 = new Enemy(-600, 166, 450);
 
 
 //all enemy objects is placed in an array called allEnemies
-const allEnemies = [enemy1, enemy2, enemy3, enemy4];
+const allEnemies = [enemy1, enemy2, enemy3, enemy4, enemy5];
 console.log(allEnemies);
 
 /**
