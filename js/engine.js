@@ -59,7 +59,7 @@
          * function again as soon as the browser is able to draw another frame.
          */
 
-        //check if Player wins from Matt's walkthrough
+        //checks if Player wins/reached the river 
          if (player.wins === true) {
          //stop animation frame
           win.cancelAnimationFrame(frameId);
