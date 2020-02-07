@@ -52,6 +52,8 @@ Download/clone to computer to play.
 I used these sources to complete this project: MDN(https://developer.mozilla.org/en-US/docs/Web/API/Window/cancelAnimationFrame), W3Schools(https://www.w3schools.com/), https://dmauro.github.io/Keypress/, https://stackoverflow.com/questions/1846599/how-to-find-out-what-character-key-is-pressed, Matthew Cranford's walkthroughs https://matthewcranford.com/arcade-game-walkthrough-part-6-collisions-win-conditions-and-game-resets/), https://stackoverflow.com/questions/41305439/simple-javascript-collision-detection, https://sabe.io/tutorials/how-to-create-modal-popup-box, https://www.udemy.com/code-your-first-game/learn/v4/t/lecture/2701754?start=450
 
 
+© Copyright 2018, GitHub Inc.
+
 
 
 
